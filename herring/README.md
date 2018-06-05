@@ -8,7 +8,7 @@ Add the following dependency to your project to use it.
       <dependency>
           <groupId>com.manorrock.herring</groupId>
           <artifactId>herring</artifactId>
-          <version>x.y</version>
+          <version>x.y.z</version>
       </dependency>
 
 And then you either will have to pass in the InitialContextFactory using a property
