@@ -30,6 +30,7 @@ import javax.naming.Binding;
 import javax.naming.CompositeName;
 import javax.naming.Context;
 import javax.naming.ContextNotEmptyException;
+import javax.naming.InitialContext;
 import javax.naming.Name;
 import javax.naming.NameAlreadyBoundException;
 import javax.naming.NameClassPair;
@@ -372,6 +373,19 @@ public class DefaultInitialContextTest {
     public void testListBindings7() throws Exception {
         DefaultInitialContext context = new DefaultInitialContext();
         context.createSubcontext("name");
+        NamingEnumeration<Binding> enumeration = context.listBindings(new CompositeName("name"));
+        assertNotNull(enumeration);
+    }
+    
+    /**
+     * Test listBindings method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testListBindings8() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        context.bind("name", new InitialContext());
         NamingEnumeration<Binding> enumeration = context.listBindings(new CompositeName("name"));
         assertNotNull(enumeration);
     }

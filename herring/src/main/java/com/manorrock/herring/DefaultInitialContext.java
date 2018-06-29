@@ -53,7 +53,7 @@ public class DefaultInitialContext implements Context {
      * Defines the "Not supported yet." constant.
      */
     private static final String NOT_SUPPORTED_YET = "Not supported yet.";
-    
+
     /**
      * Stores the bindings.
      */
@@ -344,12 +344,10 @@ public class DefaultInitialContext implements Context {
             } else {
                 throw new NamingException("Name " + name + " is not a named context");
             }
+        } else if (bindings.containsKey(name) && bindings.get(name) instanceof DefaultInitialContext) {
+            contextMap = (DefaultInitialContext) bindings.get(name);
         } else {
-            if (bindings.containsKey(name) && bindings.get(name) instanceof DefaultInitialContext) {
-                contextMap = (DefaultInitialContext) bindings.get(name);
-            } else {
-                contextMap = null;
-            }
+            contextMap = null;
         }
 
         if (contextMap != null) {
