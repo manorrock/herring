@@ -155,6 +155,17 @@ public class DefaultInitialContextTest {
     }
 
     /**
+     * Test composeName method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test(expected = NamingException.class)
+    public void testComposeName3() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        assertNotNull(context.composeName("name", null));
+    }
+
+    /**
      * Test destroySubcontext method.
      *
      * @throws Exception when an error occurs.
@@ -376,7 +387,7 @@ public class DefaultInitialContextTest {
         NamingEnumeration<Binding> enumeration = context.listBindings(new CompositeName("name"));
         assertNotNull(enumeration);
     }
-    
+
     /**
      * Test listBindings method.
      *
@@ -389,7 +400,7 @@ public class DefaultInitialContextTest {
         NamingEnumeration<Binding> enumeration = context.listBindings(new CompositeName("name"));
         assertNotNull(enumeration);
     }
-    
+
     /**
      * Test lookup method.
      *
