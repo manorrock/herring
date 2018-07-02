@@ -179,9 +179,7 @@ public class DefaultInitialContext implements Context {
     @Override
     public void close() throws NamingException {
         checkClosed();
-        if (!closed) {
-            closed = true;
-        }
+        closed = true;
     }
 
     /**
