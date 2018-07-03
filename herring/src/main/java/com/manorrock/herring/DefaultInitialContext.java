@@ -30,6 +30,7 @@ import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import javax.naming.Binding;
+import javax.naming.CompositeName;
 import javax.naming.Context;
 import javax.naming.ContextNotEmptyException;
 import javax.naming.Name;
@@ -100,11 +101,6 @@ public class DefaultInitialContext implements Context {
 
     @Override
     public NameParser getNameParser(String name) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
-
-    @Override
-    public Name composeName(Name name, Name prefix) throws NamingException {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
@@ -209,6 +205,20 @@ public class DefaultInitialContext implements Context {
         return (Context) bindings.get(name);
     }
 
+    /**
+     * Compose the name.
+     * 
+     * @param name the name.
+     * @param prefix the prefix.
+     * @return the name.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public Name composeName(Name name, Name prefix) throws NamingException {
+        String returnedName = composeName(name.toString(), prefix.toString());
+        return new CompositeName(returnedName);
+    }
+    
     /**
      * Compose the name.
      *

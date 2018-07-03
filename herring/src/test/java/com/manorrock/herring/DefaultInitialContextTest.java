@@ -166,6 +166,17 @@ public class DefaultInitialContextTest {
     }
 
     /**
+     * Test composeName method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testComposeName4() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        assertNotNull(context.composeName(new CompositeName("name"), new CompositeName("")));
+    }
+
+    /**
      * Test destroySubcontext method.
      *
      * @throws Exception when an error occurs.
