@@ -64,6 +64,11 @@ public class DefaultInitialContext implements Context {
      * Stores the closed flag.
      */
     private boolean closed = false;
+    
+    /**
+     * Stores the environment.
+     */
+    private final Map<String, Object> environment = new ConcurrentHashMap<>();
 
     /**
      * List the entries for the given name.
@@ -106,11 +111,6 @@ public class DefaultInitialContext implements Context {
 
     @Override
     public Object addToEnvironment(String propName, Object propVal) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
-
-    @Override
-    public Object removeFromEnvironment(String propName) throws NamingException {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
@@ -445,6 +445,18 @@ public class DefaultInitialContext implements Context {
         }
     }
 
+    /**
+     * Remove the property from the environment.
+     * 
+     * @param name the property name.
+     * @return the value, or null if not found.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public Object removeFromEnvironment(String name) throws NamingException {
+        return environment.get(name);
+    }
+    
     /**
      * Rename the object.
      *
