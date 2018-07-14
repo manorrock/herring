@@ -109,9 +109,19 @@ public class DefaultInitialContext implements Context {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
+    /**
+     * Add to the environment.
+     * 
+     * @param name the name of the property.
+     * @param value the value of the property.
+     * @return the previous value, or null if none.
+     * @throws NamingException when a Naming error occurs.
+     */
     @Override
-    public Object addToEnvironment(String propName, Object propVal) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
+    public Object addToEnvironment(String name, Object value) throws NamingException {
+        Object result = removeFromEnvironment(name);
+        environment.put(name, value);
+        return result;
     }
 
     /**
@@ -454,7 +464,7 @@ public class DefaultInitialContext implements Context {
      */
     @Override
     public Object removeFromEnvironment(String name) throws NamingException {
-        return environment.get(name);
+        return environment.remove(name);
     }
     
     /**

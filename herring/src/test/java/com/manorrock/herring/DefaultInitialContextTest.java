@@ -41,6 +41,7 @@ import javax.naming.NotContextException;
 import javax.naming.OperationNotSupportedException;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
@@ -50,6 +51,19 @@ import org.junit.Test;
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultInitialContextTest {
+
+    /**
+     * Test addToEnvironment method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testAddToEnvironment() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        context.addToEnvironment("test", "test");
+        assertEquals("test", context.removeFromEnvironment("test"));
+        assertNull(context.removeFromEnvironment("test"));
+    }
 
     /**
      * Test bind method.
