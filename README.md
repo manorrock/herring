@@ -13,7 +13,8 @@ for the release you are using in the links below.
 
 ## Documentation for older releases
 
-1. [Version 1.0.0](https://github.com/manorrock/herring/tree/v1.0.0)
+1. [Version 1.1.0](https://github.com/manorrock/herring/tree/v1.1.0)
+2. [Version 1.0.0](https://github.com/manorrock/herring/tree/v1.0.0)
 
 ## How do I contribute?
 
