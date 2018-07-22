@@ -25,6 +25,9 @@
  */
 package com.manorrock.herring;
 
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Enumeration;
 import javax.naming.NameClassPair;
 import javax.naming.NamingEnumeration;
 import javax.naming.NamingException;
@@ -40,6 +43,20 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
      * Defines the "Not supported yet." constant.
      */
     private static final String NOT_SUPPORTED_YET = "Not supported yet.";
+    
+    /**
+     * Stores the name class pairs.
+     */
+    private Enumeration<NameClassPair> nameClassPairs;
+
+    /**
+     * Constructor.
+     *
+     * @param nameClassPairs the name class pairs.
+     */
+    public DefaultNamingEnumeration(Collection<NameClassPair> nameClassPairs) {
+        this.nameClassPairs = Collections.enumeration(nameClassPairs);
+    }
 
     @Override
     public NameClassPair next() throws NamingException {
@@ -61,8 +78,13 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
         return false;
     }
 
+    /**
+     * Get the next element.
+     *
+     * @return the next element.
+     */
     @Override
     public NameClassPair nextElement() {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
+        return nameClassPairs.nextElement();
     }
 }

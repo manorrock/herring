@@ -79,7 +79,7 @@ public class DefaultInitialContext implements Context {
      */
     @Override
     public NamingEnumeration<NameClassPair> list(String name) throws NamingException {
-        return new DefaultNamingEnumeration();
+        return new DefaultNamingEnumeration(new ArrayList<>());
     }
 
     /**
