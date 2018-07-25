@@ -73,9 +73,14 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
+    /**
+     * Do we have more elements?
+     * 
+     * @return true if we do, false otherwise.
+     */
     @Override
     public boolean hasMoreElements() {
-        return false;
+        return nameClassPairs.hasMoreElements();
     }
 
     /**

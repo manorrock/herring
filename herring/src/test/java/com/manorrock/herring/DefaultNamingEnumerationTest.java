@@ -27,22 +27,32 @@ package com.manorrock.herring;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import static org.junit.Assert.assertFalse;
 import org.junit.Test;
 
 /**
  * The JUnit tests for the DefaultNamingEnumeration class.
- * 
+ *
  * @author Manfred Riem (mriem@manorrock.com)
  */
 public class DefaultNamingEnumerationTest {
-    
+
+    /**
+     * Test hasMoreElements method.
+     */
+    @Test
+    public void testNext() {
+        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
+        assertFalse(enumeration.hasMoreElements());
+    }
+
     /**
      * Test nextElement method.
-     * 
+     *
      * @throws Exception when a serious error occurs.
      */
     @Test(expected = NoSuchElementException.class)
-    public void testNext() throws Exception {
+    public void testNextElement() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         enumeration.nextElement();
     }
