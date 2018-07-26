@@ -63,11 +63,6 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
-    @Override
-    public boolean hasMore() throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
-
     /**
      * Close the enumeration.
      * 
@@ -75,6 +70,17 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
      */
     @Override
     public void close() throws NamingException {
+    }
+
+    /**
+     * Do we have more elements?
+     * 
+     * @return true if we do, false otherwise.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public boolean hasMore() throws NamingException {
+        return hasMoreElements();
     }
 
     /**

@@ -38,10 +38,21 @@ import org.junit.Test;
 public class DefaultNamingEnumerationTest {
 
     /**
+     * Test hasMore method.
+     *
+     * @throws Exception when a serious error occurs.
+     */
+    @Test
+    public void testHasMore() throws Exception {
+        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
+        assertFalse(enumeration.hasMore());
+    }
+
+    /**
      * Test hasMoreElements method.
      */
     @Test
-    public void testNext() {
+    public void testHasMoreElements() {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertFalse(enumeration.hasMoreElements());
     }
