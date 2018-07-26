@@ -68,9 +68,13 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
+    /**
+     * Close the enumeration.
+     * 
+     * @throws NamingException when a naming error occurs.
+     */
     @Override
     public void close() throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     /**
