@@ -40,14 +40,9 @@ import javax.naming.NamingException;
 public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair> {
 
     /**
-     * Defines the "Not supported yet." constant.
-     */
-    private static final String NOT_SUPPORTED_YET = "Not supported yet.";
-    
-    /**
      * Stores the name class pairs.
      */
-    private Enumeration<NameClassPair> nameClassPairs;
+    private final Enumeration<NameClassPair> nameClassPairs;
 
     /**
      * Constructor.
@@ -56,11 +51,6 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
      */
     public DefaultNamingEnumeration(Collection<NameClassPair> nameClassPairs) {
         this.nameClassPairs = Collections.enumeration(nameClassPairs);
-    }
-
-    @Override
-    public NameClassPair next() throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
     /**
@@ -93,6 +83,17 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
         return nameClassPairs.hasMoreElements();
     }
 
+    /**
+     * Get the next element.
+     * 
+     * @return the next element.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public NameClassPair next() throws NamingException {
+        return nextElement();
+    }
+    
     /**
      * Get the next element.
      *

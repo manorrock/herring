@@ -27,7 +27,9 @@ package com.manorrock.herring;
 
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+import javax.naming.NameClassPair;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 /**
@@ -55,6 +57,31 @@ public class DefaultNamingEnumerationTest {
     public void testHasMoreElements() {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertFalse(enumeration.hasMoreElements());
+    }
+
+    /**
+     * Test next method.
+     * 
+     * @throws Exception when a serious error occurs.
+     */
+    @Test(expected = NoSuchElementException.class)
+    public void testNext() throws Exception {
+        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
+        enumeration.next();
+    }
+
+    /**
+     * Test next method.
+     * 
+     * @throws Exception when a serious error occurs.
+     */
+    @Test
+    public void testNext2() throws Exception {
+        NameClassPair pair = new NameClassPair("name", "className");
+        ArrayList<NameClassPair> list = new ArrayList<>();
+        list.add(pair);
+        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(list);
+        assertNotNull(enumeration.next());
     }
 
     /**
