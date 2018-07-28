@@ -40,6 +40,17 @@ import org.junit.Test;
 public class DefaultNamingEnumerationTest {
 
     /**
+     * Test close method.
+     *
+     * @throws Exception when a serious error occurs.
+     */
+    @Test
+    public void testClose() throws Exception {
+        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
+        enumeration.close();
+    }
+
+    /**
      * Test hasMore method.
      *
      * @throws Exception when a serious error occurs.
@@ -61,7 +72,7 @@ public class DefaultNamingEnumerationTest {
 
     /**
      * Test next method.
-     * 
+     *
      * @throws Exception when a serious error occurs.
      */
     @Test(expected = NoSuchElementException.class)
@@ -72,7 +83,7 @@ public class DefaultNamingEnumerationTest {
 
     /**
      * Test next method.
-     * 
+     *
      * @throws Exception when a serious error occurs.
      */
     @Test
