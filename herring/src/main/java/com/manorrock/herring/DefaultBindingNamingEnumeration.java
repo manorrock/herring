@@ -127,7 +127,7 @@ class DefaultBindingNamingEnumeration implements NamingEnumeration<Binding> {
      * @throws NamingException when a naming error occurs.
      */
     private void checkClosed() throws NamingException {
-        if (iterator == null || list == null) {
+        if (list == null) {
             throw new NamingException("Cannot call any method on a closed NamingEnumeration");
         }
     }
