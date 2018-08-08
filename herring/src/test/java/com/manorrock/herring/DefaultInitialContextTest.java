@@ -285,6 +285,17 @@ public class DefaultInitialContextTest {
         DefaultInitialContext context = new DefaultInitialContext();
         context.getNameInNamespace();
     }
+    
+    /**
+     * Test getNameParser method.
+     * 
+     * @throws Exception when a serious error occurs.
+     */
+    @Test(expected = UnsupportedOperationException.class)
+    public void testGetNameParser() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        context.getNameParser(new CompositeName());
+    }
 
     /**
      * Test lookup method.

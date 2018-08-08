@@ -100,11 +100,6 @@ public class DefaultInitialContext implements Context {
     }
 
     @Override
-    public NameParser getNameParser(Name name) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
-
-    @Override
     public NameParser getNameParser(String name) throws NamingException {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
@@ -316,6 +311,18 @@ public class DefaultInitialContext implements Context {
         throw new OperationNotSupportedException();
     }
 
+    /**
+     * Get the name parser.
+     * 
+     * @param name the name.
+     * @return the name parser.
+     * @throws NamingException when a serious error occurs.
+     */
+    @Override
+    public NameParser getNameParser(Name name) throws NamingException {
+        return getNameParser(name.toString());
+    }
+    
     /**
      * List the names in the named context.
      *
