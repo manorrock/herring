@@ -51,6 +51,11 @@ import javax.naming.OperationNotSupportedException;
 public class DefaultInitialContext implements Context {
 
     /**
+     * Stores the one and only NameParser instance.
+     */
+    private static final NameParser NAME_PARSER = new DefaultNameParser();
+
+    /**
      * Defines the "Not supported yet." constant.
      */
     private static final String NOT_SUPPORTED_YET = "Not supported yet.";
@@ -64,23 +69,11 @@ public class DefaultInitialContext implements Context {
      * Stores the closed flag.
      */
     private boolean closed = false;
-    
+
     /**
      * Stores the environment.
      */
     private final Map<String, Object> environment = new ConcurrentHashMap<>();
-
-    /**
-     * List the entries for the given name.
-     *
-     * @param name the name.
-     * @return the name class pair enumeration.
-     * @throws NamingException when a naming error occurs.
-     */
-    @Override
-    public NamingEnumeration<NameClassPair> list(String name) throws NamingException {
-        return new DefaultNamingEnumeration(new ArrayList<>());
-    }
 
     /**
      * Lookup the link.
@@ -99,14 +92,9 @@ public class DefaultInitialContext implements Context {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
     }
 
-    @Override
-    public NameParser getNameParser(String name) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
-
     /**
      * Add to the environment.
-     * 
+     *
      * @param name the name of the property.
      * @param value the value of the property.
      * @return the previous value, or null if none.
@@ -212,7 +200,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Compose the name.
-     * 
+     *
      * @param name the name.
      * @param prefix the prefix.
      * @return the name.
@@ -223,7 +211,7 @@ public class DefaultInitialContext implements Context {
         String returnedName = composeName(name.toString(), prefix.toString());
         return new CompositeName(returnedName);
     }
-    
+
     /**
      * Compose the name.
      *
@@ -313,7 +301,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Get the name parser.
-     * 
+     *
      * @param name the name.
      * @return the name parser.
      * @throws NamingException when a serious error occurs.
@@ -322,7 +310,19 @@ public class DefaultInitialContext implements Context {
     public NameParser getNameParser(Name name) throws NamingException {
         return getNameParser(name.toString());
     }
-    
+
+    /**
+     * Get the name parser.
+     *
+     * @param name the name parser.
+     * @return the name parser.
+     * @throws NamingException when a serious error occurs.
+     */
+    @Override
+    public NameParser getNameParser(String name) throws NamingException {
+        return NAME_PARSER;
+    }
+
     /**
      * List the names in the named context.
      *
@@ -333,6 +333,18 @@ public class DefaultInitialContext implements Context {
     @Override
     public NamingEnumeration<NameClassPair> list(Name name) throws NamingException {
         return list(name.toString());
+    }
+
+    /**
+     * List the entries for the given name.
+     *
+     * @param name the name.
+     * @return the name class pair enumeration.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public NamingEnumeration<NameClassPair> list(String name) throws NamingException {
+        return new DefaultNamingEnumeration(new ArrayList<>());
     }
 
     /**
@@ -464,7 +476,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Remove the property from the environment.
-     * 
+     *
      * @param name the property name.
      * @return the value, or null if not found.
      * @throws NamingException when a naming error occurs.
@@ -473,7 +485,7 @@ public class DefaultInitialContext implements Context {
     public Object removeFromEnvironment(String name) throws NamingException {
         return environment.remove(name);
     }
-    
+
     /**
      * Rename the object.
      *
