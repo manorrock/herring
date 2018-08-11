@@ -75,18 +75,6 @@ public class DefaultInitialContext implements Context {
      */
     private final Map<String, Object> environment = new ConcurrentHashMap<>();
 
-    /**
-     * Lookup the link.
-     *
-     * @param name the name.
-     * @return the link.
-     * @throws NamingException when a naming error occurs.
-     */
-    @Override
-    public Object lookupLink(Name name) throws NamingException {
-        return lookupLink(name.toString());
-    }
-
     @Override
     public Object lookupLink(String name) throws NamingException {
         throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
@@ -435,6 +423,18 @@ public class DefaultInitialContext implements Context {
         }
     }
 
+    /**
+     * Lookup the link.
+     *
+     * @param name the name.
+     * @return the link.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public Object lookupLink(Name name) throws NamingException {
+        return lookupLink(name.toString());
+    }
+    
     /**
      * Rebind the name.
      *
