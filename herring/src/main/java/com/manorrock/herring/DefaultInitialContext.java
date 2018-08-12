@@ -56,11 +56,6 @@ public class DefaultInitialContext implements Context {
     private static final NameParser NAME_PARSER = new DefaultNameParser();
 
     /**
-     * Defines the "Not supported yet." constant.
-     */
-    private static final String NOT_SUPPORTED_YET = "Not supported yet.";
-
-    /**
      * Stores the bindings.
      */
     private final Map<String, Object> bindings = new ConcurrentHashMap<>();
@@ -74,11 +69,6 @@ public class DefaultInitialContext implements Context {
      * Stores the environment.
      */
     private final Map<String, Object> environment = new ConcurrentHashMap<>();
-
-    @Override
-    public Object lookupLink(String name) throws NamingException {
-        throw new UnsupportedOperationException(NOT_SUPPORTED_YET);
-    }
 
     /**
      * Add to the environment.
@@ -434,7 +424,19 @@ public class DefaultInitialContext implements Context {
     public Object lookupLink(Name name) throws NamingException {
         return lookupLink(name.toString());
     }
-    
+
+    /**
+     * Lookup the link.
+     * 
+     * @param name the name.
+     * @return the link.
+     * @throws NamingException when a naming error occurs.
+     */
+    @Override
+    public Object lookupLink(String name) throws NamingException {
+        return lookup(name);
+    }
+
     /**
      * Rebind the name.
      *

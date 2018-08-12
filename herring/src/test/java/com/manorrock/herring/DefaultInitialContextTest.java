@@ -605,9 +605,10 @@ public class DefaultInitialContextTest {
      *
      * @throws Exception when an error occurs.
      */
-    @Test(expected = UnsupportedOperationException.class)
+    @Test
     public void testLookupLink() throws Exception {
         DefaultInitialContext context = new DefaultInitialContext();
-        context.lookupLink(new CompositeName());
+        context.bind("name", "value");
+        assertNotNull(context.lookupLink("name"));
     }
 }
