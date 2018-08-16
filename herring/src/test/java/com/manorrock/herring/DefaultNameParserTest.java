@@ -25,27 +25,26 @@
  */
 package com.manorrock.herring;
 
-import javax.naming.CompositeName;
 import javax.naming.Name;
-import javax.naming.NameParser;
-import javax.naming.NamingException;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
- * The default NameParser.
+ * The JUnit tests for the DefaultNameParser class.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultNameParser implements NameParser {
+public class DefaultNameParserTest {
 
     /**
-     * Parse the name.
-     *
-     * @param name the name.
-     * @return the parsed name.
-     * @throws NamingException when a serious error occurs.
+     * Test parse method.
+     * 
+     * @throws Exception when an error occurs.
      */
-    @Override
-    public Name parse(String name) throws NamingException {
-        return new CompositeName(name);
+    @Test
+    public void testParse() throws Exception {
+        DefaultNameParser parser = new DefaultNameParser();
+        Name result = parser.parse("MyName");
+        assertNotNull(result);
     }
 }
