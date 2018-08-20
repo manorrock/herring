@@ -484,6 +484,29 @@ public class DefaultInitialContextTest {
     }
 
     /**
+     * Test lookupLink method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testLookupLink() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        context.bind("name", "value");
+        assertNotNull(context.lookupLink("name"));
+    }
+    /**
+     * Test lookupLink method.
+     *
+     * @throws Exception when an error occurs.
+     */
+    @Test
+    public void testLookupLink2() throws Exception {
+        DefaultInitialContext context = new DefaultInitialContext();
+        context.bind("name", "value");
+        assertNotNull(context.lookupLink(new CompositeName("name")));
+    }
+
+    /**
      * Test rebind method.
      *
      * @throws Exception when an error occurs.
@@ -598,17 +621,5 @@ public class DefaultInitialContextTest {
         DefaultInitialContext context = new DefaultInitialContext();
         context.bind("composite/name", "test");
         context.unbind("composite2/name");
-    }
-
-    /**
-     * Test lookupLink method.
-     *
-     * @throws Exception when an error occurs.
-     */
-    @Test
-    public void testLookupLink() throws Exception {
-        DefaultInitialContext context = new DefaultInitialContext();
-        context.bind("name", "value");
-        assertNotNull(context.lookupLink("name"));
     }
 }
