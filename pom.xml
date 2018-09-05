@@ -215,7 +215,6 @@
     </developers>
     <modules>
         <module>herring</module>
-        <module>herring-multithread</module>
     </modules>
     <profiles>
         <profile>
