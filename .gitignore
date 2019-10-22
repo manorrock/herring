@@ -1,3 +1,3 @@
-/herring/target/
-/target/
-/herring/nbproject/
+nb-configuration.xml
+nbproject/
+target/
