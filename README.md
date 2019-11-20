@@ -13,6 +13,7 @@ for the release you are using in the links below.
 
 ## Documentation for older releases
 
+1. [Version 19.11.0](https://github.com/manorrock/herring/tree/v19.11.0)
 1. [Version 19.10.0](https://github.com/manorrock/herring/tree/v19.10.0)
 1. [Version 1.3.0](https://github.com/manorrock/herring/tree/v1.3.0)
 1. [Version 1.2.0](https://github.com/manorrock/herring/tree/v1.2.0)
