@@ -87,8 +87,9 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
     }
 
     /**
-     * {@return the next element}
+     * Get the next element.
      * 
+     * @return the next element.
      * @throws NamingException when a naming error occurs.
      */
     @Override
@@ -97,7 +98,9 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
     }
     
     /**
-     * {@return the next element}
+     * Get the next element.
+     * 
+     * @return the next element.
      */
     @Override
     public NameClassPair nextElement() {
