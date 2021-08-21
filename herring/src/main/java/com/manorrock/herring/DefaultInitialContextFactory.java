@@ -45,7 +45,9 @@ public class DefaultInitialContextFactory implements InitialContextFactory {
     private static final DefaultInitialContext INITIAL_CONTEXT = new DefaultInitialContext();
     
     /**
-     * {@return the initial context}
+     * Get the initial context.
+     * 
+     * @return the initial context.
      * @param environment the environment.
      * @throws NamingException when a naming error occurs.
      */
