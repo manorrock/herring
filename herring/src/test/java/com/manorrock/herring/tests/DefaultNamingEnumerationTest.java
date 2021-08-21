@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -25,14 +25,18 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.herring;
+package com.manorrock.herring.tests;
 
+import com.manorrock.herring.DefaultNamingEnumeration;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
 import javax.naming.NameClassPair;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import org.junit.Test;
+import javax.naming.NamingException;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.Test;
 
 /**
  * The JUnit tests for the DefaultNamingEnumeration class.
@@ -43,13 +47,15 @@ public class DefaultNamingEnumerationTest {
 
     /**
      * Test close method.
-     *
-     * @throws Exception when a serious error occurs.
      */
     @Test
-    public void testClose() throws Exception {
-        DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
-        enumeration.close();
+    public void testClose() {
+        try {
+            DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
+            enumeration.close();
+        } catch (NamingException ex) {
+            fail();
+        }
     }
 
     /**
@@ -77,10 +83,10 @@ public class DefaultNamingEnumerationTest {
      *
      * @throws Exception when a serious error occurs.
      */
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void testNext() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
-        enumeration.next();
+        assertThrows(NoSuchElementException.class, enumeration::next);
     }
 
     /**
@@ -102,9 +108,9 @@ public class DefaultNamingEnumerationTest {
      *
      * @throws Exception when a serious error occurs.
      */
-    @Test(expected = NoSuchElementException.class)
+    @Test
     public void testNextElement() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
-        enumeration.nextElement();
+        assertThrows(NoSuchElementException.class, enumeration::nextElement);
     }
 }

@@ -25,29 +25,27 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.herring;
+package com.manorrock.herring.tests;
 
-import javax.naming.CompositeName;
-import javax.naming.Name;
-import javax.naming.NameParser;
-import javax.naming.NamingException;
+import com.manorrock.herring.DefaultInitialContextFactory;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
 
 /**
- * The default NameParser.
+ * The JUnit tests for the DefaultInitialContextFactory class.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultNameParser implements NameParser {
+class DefaultInitialContextFactoryTest {
 
     /**
-     * Parse the name.
-     *
-     * @param name the name.
-     * @return the parsed name.
-     * @throws NamingException when a serious error occurs.
+     * Test getInitialContext method.
+     * 
+     * @throws Exception when a serious error occurs.
      */
-    @Override
-    public Name parse(String name) throws NamingException {
-        return new CompositeName(name);
+    @Test
+    void testGetInitialContext() throws Exception {
+        DefaultInitialContextFactory factory = new DefaultInitialContextFactory();
+        assertNotNull(factory.getInitialContext(null));
     }
 }

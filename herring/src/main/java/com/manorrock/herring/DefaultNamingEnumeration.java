@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -62,6 +62,7 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
      */
     @Override
     public void close() throws NamingException {
+        // nothing to do here.
     }
 
     /**
@@ -86,9 +87,8 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
     }
 
     /**
-     * Get the next element.
+     * {@return the next element}
      * 
-     * @return the next element.
      * @throws NamingException when a naming error occurs.
      */
     @Override
@@ -97,9 +97,7 @@ public class DefaultNamingEnumeration implements NamingEnumeration<NameClassPair
     }
     
     /**
-     * Get the next element.
-     *
-     * @return the next element.
+     * {@return the next element}
      */
     @Override
     public NameClassPair nextElement() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -45,10 +45,8 @@ public class DefaultInitialContextFactory implements InitialContextFactory {
     private static final DefaultInitialContext INITIAL_CONTEXT = new DefaultInitialContext();
     
     /**
-     * Get the initial context.
-     *
+     * {@return the initial context}
      * @param environment the environment.
-     * @return the initial context.
      * @throws NamingException when a naming error occurs.
      */
     @Override

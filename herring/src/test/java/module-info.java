@@ -25,28 +25,15 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.herring;
-
-import javax.naming.Name;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 /**
- * The JUnit tests for the DefaultNameParser class.
- *
- * @author Manfred Riem (mriem@manorrock.com)
+ * The module-info file for Manorrock Herring JUnit tests.
  */
-public class DefaultNameParserTest {
-
-    /**
-     * Test parse method.
-     * 
-     * @throws Exception when an error occurs.
-     */
-    @Test
-    public void testParse() throws Exception {
-        DefaultNameParser parser = new DefaultNameParser();
-        Name result = parser.parse("MyName");
-        assertNotNull(result);
-    }
+module com.manorrock.herring.tests {
+    
+    exports com.manorrock.herring.tests;
+    opens com.manorrock.herring.tests;
+    requires com.manorrock.herring;
+    requires org.junit.jupiter.api;
+    requires org.junit.jupiter.engine;
 }

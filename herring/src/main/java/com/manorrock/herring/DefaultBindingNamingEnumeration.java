@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -39,7 +39,7 @@ import javax.naming.NamingException;
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-class DefaultBindingNamingEnumeration implements NamingEnumeration<Binding> {
+public class DefaultBindingNamingEnumeration implements NamingEnumeration<Binding> {
 
     /**
      * Stores the list of bindings.
@@ -62,9 +62,7 @@ class DefaultBindingNamingEnumeration implements NamingEnumeration<Binding> {
     }
 
     /**
-     * Get the next binding.
-     *
-     * @return the next binding.
+     * {@return the next binding}
      * @throws NamingException when a naming error occurs.
      */
     @Override
@@ -114,9 +112,7 @@ class DefaultBindingNamingEnumeration implements NamingEnumeration<Binding> {
     }
 
     /**
-     * Get the next element.
-     *
-     * @return the next element.
+     * {@return the next element}
      */
     @Override
     public Binding nextElement() {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -25,28 +25,30 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.herring;
+package com.manorrock.herring.tests;
 
+import com.manorrock.herring.DefaultBindingNamingEnumeration;
 import java.util.ArrayList;
 import javax.naming.NamingException;
-import org.junit.Test;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 
 /**
  * The JUnit tests for the DefaultBindingNamingEnumeration class.
  * 
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultBindingNamingEnumerationTest {
+class DefaultBindingNamingEnumerationTest {
    
     /**
      * Test checkClosed method.
      * 
      * @throws Exception when a serious error occurs.
      */
-    @Test(expected = NamingException.class)
-    public void testCheckClosed() throws Exception {
+    @Test
+    void testCheckClosed() throws Exception {
         DefaultBindingNamingEnumeration enumeration = new DefaultBindingNamingEnumeration(new ArrayList<>());
         enumeration.close();
-        enumeration.close();
+        assertThrows(NamingException.class, enumeration::close);
     }
 }

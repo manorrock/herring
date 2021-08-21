@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -63,6 +63,11 @@ public class DefaultInitialContext implements Context {
     private final Map<String, Object> bindings = new ConcurrentHashMap<>();
 
     /**
+     * Stores the closeable flag.
+     */
+    private boolean closeable = false;
+
+    /**
      * Stores the closed flag.
      */
     private boolean closed = false;
@@ -71,6 +76,21 @@ public class DefaultInitialContext implements Context {
      * Stores the environment.
      */
     private final Map<String, Object> environment = new ConcurrentHashMap<>();
+
+    /**
+     * Constructor.
+     */
+    public DefaultInitialContext() {
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param closeable the closeable flag.
+     */
+    public DefaultInitialContext(boolean closeable) {
+        this.closeable = closeable;
+    }
 
     /**
      * Add to the environment.
@@ -142,13 +162,18 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Close the context.
+     * 
+     * If the closeable flag is set to true it will close the context for 
+     * further use, otherwise this call has no effect.
      *
      * @throws NamingException when a naming error occurs.
      */
     @Override
     public void close() throws NamingException {
-        checkClosed();
-        closed = true;
+        if (closeable) {
+            checkClosed();
+            closed = true;
+        }
     }
 
     /**
@@ -256,9 +281,7 @@ public class DefaultInitialContext implements Context {
     }
 
     /**
-     * Get the environment.
-     *
-     * @return the environment.
+     * {@return the environment}
      * @throws NamingException when a naming error occurs.
      */
     @Override
@@ -280,10 +303,8 @@ public class DefaultInitialContext implements Context {
     }
 
     /**
-     * Get the name parser.
-     *
+     * {@return the name parser}
      * @param name the name.
-     * @return the name parser.
      * @throws NamingException when a serious error occurs.
      */
     @Override
@@ -292,10 +313,8 @@ public class DefaultInitialContext implements Context {
     }
 
     /**
-     * Get the name parser.
-     *
+     * {@return the name parser}
      * @param name the name parser.
-     * @return the name parser.
      * @throws NamingException when a serious error occurs.
      */
     @Override
@@ -429,7 +448,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Lookup the link.
-     * 
+     *
      * @param name the name.
      * @return the link.
      * @throws NamingException when a naming error occurs.

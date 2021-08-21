@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2002-2020 Manorrock.com. All Rights Reserved.
+ * Copyright (c) 2002-2021 Manorrock.com. All Rights Reserved.
  *
  * Redistribution and use in source and binary forms, with or without 
  * modification, are permitted provided that the following conditions are met:
@@ -25,26 +25,29 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-package com.manorrock.herring;
+package com.manorrock.herring.tests;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
+import com.manorrock.herring.DefaultNameParser;
+import javax.naming.Name;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.Test;
 
 /**
- * The JUnit tests for the DefaultInitialContextFactory class.
+ * The JUnit tests for the DefaultNameParser class.
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultInitialContextFactoryTest {
+class DefaultNameParserTest {
 
     /**
-     * Test getInitialContext method.
+     * Test parse method.
      * 
-     * @throws Exception when a serious error occurs.
+     * @throws Exception when an error occurs.
      */
     @Test
-    public void testGetInitialContext() throws Exception {
-        DefaultInitialContextFactory factory = new DefaultInitialContextFactory();
-        assertNotNull(factory.getInitialContext(null));
+    void testParse() throws Exception {
+        DefaultNameParser parser = new DefaultNameParser();
+        Name result = parser.parse("MyName");
+        assertNotNull(result);
     }
 }
