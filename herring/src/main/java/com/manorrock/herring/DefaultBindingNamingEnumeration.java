@@ -62,7 +62,9 @@ public class DefaultBindingNamingEnumeration implements NamingEnumeration<Bindin
     }
 
     /**
-     * {@return the next binding}
+     * Get the next binding.
+     * 
+     * @return the next binding.
      * @throws NamingException when a naming error occurs.
      */
     @Override
@@ -112,7 +114,9 @@ public class DefaultBindingNamingEnumeration implements NamingEnumeration<Bindin
     }
 
     /**
-     * {@return the next element}
+     * Get the next element.
+     * 
+     * @return the next element.
      */
     @Override
     public Binding nextElement() {
