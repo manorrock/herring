@@ -30,7 +30,6 @@
  * The module-info file for Manorrock Herring JUnit tests.
  */
 module com.manorrock.herring.tests {
-    
     exports com.manorrock.herring.tests;
     opens com.manorrock.herring.tests;
     requires com.manorrock.herring;

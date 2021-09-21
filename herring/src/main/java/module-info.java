@@ -30,7 +30,6 @@
  * The module-info file for Manorrock Herring.
  */
 module com.manorrock.herring {
-    
     exports com.manorrock.herring;
     opens com.manorrock.herring;
     requires transitive java.naming;
