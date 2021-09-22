@@ -9,10 +9,14 @@
     <version>21.9.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Manorrock Herring - Project</name>
-    <url>https://github.com/manorrock/herring</url>    
     <description>
         The Manorrock Herring Project delivers you with a slim JNDI container.
     </description>
+    <url>https://github.com/manorrock/herring</url>    
+    <organization>
+        <name>Manorrock.com</name>
+        <url>https://www.manorrock.com</url>
+    </organization>
     <licenses>
         <license>
             <name>Manorrock License</name>
@@ -32,10 +36,15 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>3.8.1</version>
                 </plugin>
+                <!--
+
+                  Downgraded to 2.8.2 because 3.0.0-M1 has deploy problems.
+
+                -->
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-deploy-plugin</artifactId>
-                    <version>3.0.0-M1</version>
+                    <version>2.8.2</version>
                 </plugin>
                 <plugin>
                     <groupId>org.apache.maven.plugins</groupId>
@@ -96,6 +105,11 @@
                     <groupId>org.jacoco</groupId>
                     <artifactId>jacoco-maven-plugin</artifactId>
                     <version>0.8.7</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.sonatype.plugins</groupId>
+                    <artifactId>nexus-staging-maven-plugin</artifactId>
+                    <version>1.6.8</version>
                 </plugin>
             </plugins>
         </pluginManagement>
@@ -181,6 +195,16 @@
                         </goals>
                     </execution>
                 </executions>
+            </plugin>  
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
             </plugin>
         </plugins>
     </build>
@@ -236,6 +260,12 @@
                                 <goals>
                                     <goal>sign</goal>
                                 </goals>
+                                <configuration>
+                                    <gpgArguments>
+                                        <arg>--pinentry-mode</arg>
+                                        <arg>loopback</arg>
+                                    </gpgArguments>
+                                </configuration>
                             </execution>
                         </executions>
                     </plugin>
@@ -251,4 +281,10 @@
         <developerConnection>scm:git:git@github.com:manorrock/herring.git</developerConnection>
         <url>https://github.com/manorrock/herring</url>
     </scm>
+    <distributionManagement>      
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
