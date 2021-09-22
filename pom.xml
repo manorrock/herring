@@ -213,6 +213,7 @@
     </developers>
     <modules>
         <module>herring</module>
+        <module>thread</module>
     </modules>
     <profiles>
         <profile>
