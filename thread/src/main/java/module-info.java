@@ -39,5 +39,5 @@
 module com.manorrock.herring.thread {
     exports com.manorrock.herring.thread;
     opens com.manorrock.herring.thread;
-    requires java.naming;
+    requires transitive java.naming;
 }
