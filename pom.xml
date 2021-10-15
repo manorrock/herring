@@ -119,7 +119,7 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <inherited>true</inherited>
                 <configuration>
-                    <release>11</release>
+                    <release>17</release>
                 </configuration>
             </plugin>
             <plugin>
@@ -136,7 +136,7 @@
                             <rules>
                                 <dependencyConvergence/>
                                 <requireJavaVersion>
-                                    <version>11</version>
+                                    <version>17</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>3.8.1</version>
