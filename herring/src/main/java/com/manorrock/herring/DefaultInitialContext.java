@@ -162,8 +162,8 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Close the context.
-     * 
-     * If the closeable flag is set to true it will close the context for 
+     *
+     * If the closeable flag is set to true it will close the context for
      * further use, otherwise this call has no effect.
      *
      * @throws NamingException when a naming error occurs.
@@ -256,17 +256,12 @@ public class DefaultInitialContext implements Context {
         if (name.contains("/")) {
             String[] names = name.split("/");
             DefaultInitialContext contextMap = this;
-            try {
-                for (int i = 0; i < names.length - 1; i++) {
-                    contextMap = (DefaultInitialContext) contextMap.lookup(names[i]);
-                }
-                contextMap.destroySubcontext(names[names.length - 1]);
-            } catch (NameNotFoundException nnfe) {
-                throw nnfe;
+            for (int i = 0; i < names.length - 1; i++) {
+                contextMap = (DefaultInitialContext) contextMap.lookup(names[i]);
             }
+            contextMap.destroySubcontext(names[names.length - 1]);
         } else if (bindings.containsKey(name)) {
-            if (bindings.get(name) instanceof DefaultInitialContext) {
-                DefaultInitialContext subContext = (DefaultInitialContext) bindings.get(name);
+            if (bindings.get(name) instanceof DefaultInitialContext subContext) {
                 if (subContext.bindings.isEmpty()) {
                     bindings.remove(name);
                 } else {
@@ -282,7 +277,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Get the environment.
-     * 
+     *
      * @return the environment.
      * @throws NamingException when a naming error occurs.
      */
@@ -306,7 +301,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Get the name parser.
-     * 
+     *
      * @return the name parser.
      * @param name the name.
      * @throws NamingException when a serious error occurs.
@@ -318,7 +313,7 @@ public class DefaultInitialContext implements Context {
 
     /**
      * Get the name parser.
-     * 
+     *
      * @return the name parser.
      * @param name the name parser.
      * @throws NamingException when a serious error occurs.
@@ -381,8 +376,8 @@ public class DefaultInitialContext implements Context {
             for (int i = 0; i < names.length - 1; i++) {
                 contextMap = (DefaultInitialContext) contextMap.lookup(names[i]);
             }
-            if (contextMap.lookup(names[names.length - 1]) instanceof DefaultInitialContext) {
-                contextMap = (DefaultInitialContext) contextMap.lookup(names[names.length - 1]);
+            if (contextMap.lookup(names[names.length - 1]) instanceof DefaultInitialContext defaultInitialContext) {
+                contextMap = defaultInitialContext;
             } else {
                 throw new NamingException("Name " + name + " is not a named context");
             }

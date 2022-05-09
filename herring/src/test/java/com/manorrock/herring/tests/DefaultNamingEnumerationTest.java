@@ -43,13 +43,13 @@ import org.junit.jupiter.api.Test;
  *
  * @author Manfred Riem (mriem@manorrock.com)
  */
-public class DefaultNamingEnumerationTest {
+class DefaultNamingEnumerationTest {
 
     /**
      * Test close method.
      */
     @Test
-    public void testClose() {
+    void testClose() {
         try {
             DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
             enumeration.close();
@@ -64,7 +64,7 @@ public class DefaultNamingEnumerationTest {
      * @throws Exception when a serious error occurs.
      */
     @Test
-    public void testHasMore() throws Exception {
+    void testHasMore() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertFalse(enumeration.hasMore());
     }
@@ -73,7 +73,7 @@ public class DefaultNamingEnumerationTest {
      * Test hasMoreElements method.
      */
     @Test
-    public void testHasMoreElements() {
+    void testHasMoreElements() {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertFalse(enumeration.hasMoreElements());
     }
@@ -84,7 +84,7 @@ public class DefaultNamingEnumerationTest {
      * @throws Exception when a serious error occurs.
      */
     @Test
-    public void testNext() throws Exception {
+    void testNext() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertThrows(NoSuchElementException.class, enumeration::next);
     }
@@ -95,7 +95,7 @@ public class DefaultNamingEnumerationTest {
      * @throws Exception when a serious error occurs.
      */
     @Test
-    public void testNext2() throws Exception {
+    void testNext2() throws Exception {
         NameClassPair pair = new NameClassPair("name", "className");
         ArrayList<NameClassPair> list = new ArrayList<>();
         list.add(pair);
@@ -109,7 +109,7 @@ public class DefaultNamingEnumerationTest {
      * @throws Exception when a serious error occurs.
      */
     @Test
-    public void testNextElement() throws Exception {
+    void testNextElement() throws Exception {
         DefaultNamingEnumeration enumeration = new DefaultNamingEnumeration(new ArrayList<>());
         assertThrows(NoSuchElementException.class, enumeration::nextElement);
     }
