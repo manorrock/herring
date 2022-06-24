@@ -8,6 +8,11 @@
 
 The Manorrock Herring Project delivers you with a JNDI implementation.
 
+## How do I use it?
+
+See [Manorrock Herring implementation README](herring/README.md) for more 
+information on how to use the default implementation.
+
 ## How do I contribute?
 
 See [Contributing](CONTRIBUTING.md)
