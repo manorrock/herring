@@ -1,5 +1,4 @@
-_This project has moved to the [Piranha Cloud organization](https://github.com/piranhacloud/piranha-naming).
- This copy will be archived Jan 1st, 2023. _
+_This project has moved to the [Piranha Cloud organization](https://github.com/piranhacloud/piranha-naming). This copy will be archived Jan 1st, 2023._
 
 # Manorrock Herring Project
 
