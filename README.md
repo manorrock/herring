@@ -1,4 +1,4 @@
-_This project will be archived Jan 1st, 2023 if nobody steps up to take over 
+_This project will be archived Jan 1st, 2023. This project has moved to [Piranha Cloud](https://github.com/piranhacloud/piranha-naming)
  development_
 
 # Manorrock Herring Project
