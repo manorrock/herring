@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-_This project has moved to the [Piranha Cloud organization](https://github.com/piranhacloud/piranha-naming). This copy will be archived Jan 1st, 2023._
-
-=======
->>>>>>> df69140 (Fixes issue #24 - Update README)
 # Manorrock Herring Project
 
 [![build](https://github.com/manorrock/herring/actions/workflows/build.yml/badge.svg)](https://github.com/manorrock/herring/actions/workflows/build.yml)
