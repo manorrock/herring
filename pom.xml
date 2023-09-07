@@ -264,12 +264,6 @@
     </modules>
     <profiles>
         <profile>
-            <id>coverage</id>
-            <modules>
-                <module>coverage</module>
-            </modules>
-        </profile>
-        <profile>
             <id>release</id>
             <build>
                 <plugins>
