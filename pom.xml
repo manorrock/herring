@@ -41,8 +41,8 @@
         <maven-javadoc-plugin.version>3.6.0</maven-javadoc-plugin.version>
         <maven-resources-plugin.version>3.3.1</maven-resources-plugin.version>
         <maven-site-plugin.version>4.0.0-M9</maven-site-plugin.version>
-        <!-- kept at 3.2.0 as 3.3.0 is broken -->
-        <maven-source-plugin.version>3.2.0</maven-source-plugin.version>
+        <!-- kept at 3.2.1 as 3.3.0 is broken -->
+        <maven-source-plugin.version>3.2.1</maven-source-plugin.version>
         <maven-surefire-plugin.version>3.1.2</maven-surefire-plugin.version>
         <maven-war-plugin.version>3.4.0</maven-war-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.13</nexus-staging-maven-plugin.version>
