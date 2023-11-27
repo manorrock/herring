@@ -6,8 +6,9 @@ The Manorrock Herring Project delivers you with a JNDI implementation.
 
 ## How do I use it?
 
-1. [Manorrock Herring module README](herring/README.md)
-1. [Manorrock Herring Thread module README](thread/README.md).
+1. [Manorrock Herring module](herring/README.md)
+1. [Manorrock Herring - Global](global/README.md) (under development)
+1. [Manorrock Herring - Thread](thread/README.md)
 
 ## How do I contribute?
 
