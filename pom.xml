@@ -251,6 +251,7 @@
         </developer>
     </developers>
     <modules>
+        <module>global</module>
         <module>herring</module>
         <module>thread</module>
     </modules>
