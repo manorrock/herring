@@ -45,7 +45,7 @@ public class GlobalContext implements Context {
 
     @Override
     public Object lookup(Name name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return lookup(name.toString());
     }
 
     @Override
