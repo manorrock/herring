@@ -28,6 +28,8 @@
 package com.manorrock.herring.global;
 
 import java.util.Hashtable;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import javax.naming.Binding;
 import javax.naming.Context;
 import javax.naming.Name;
@@ -43,6 +45,11 @@ import javax.naming.NamingException;
  */
 public class GlobalContext implements Context {
 
+    /**
+     * Stores the bindings.
+     */
+    private final Map<String, Object> bindings = new ConcurrentHashMap<>();
+    
     @Override
     public Object lookup(Name name) throws NamingException {
         return lookup(name.toString());
@@ -50,7 +57,7 @@ public class GlobalContext implements Context {
 
     @Override
     public Object lookup(String name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return bindings.get(name);
     }
 
     @Override
