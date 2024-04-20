@@ -156,7 +156,7 @@
                             <rules>
                                 <dependencyConvergence/>
                                 <requireJavaVersion>
-                                    <version>17</version>
+                                    <version>21</version>
                                 </requireJavaVersion>
                                 <requireMavenVersion>
                                     <version>3.8.1</version>
