@@ -71,13 +71,13 @@ public class GlobalContext implements Context {
     }
 
     @Override
-    public void rebind(Name name, Object obj) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void rebind(Name name, Object object) throws NamingException {
+        bind(name, object);
     }
 
     @Override
-    public void rebind(String name, Object obj) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void rebind(String name, Object object) throws NamingException {
+        bind(name, object);
     }
 
     @Override
