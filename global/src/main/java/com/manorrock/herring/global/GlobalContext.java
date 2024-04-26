@@ -82,12 +82,12 @@ public class GlobalContext implements Context {
 
     @Override
     public void unbind(Name name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        unbind(name.toString());
     }
 
     @Override
     public void unbind(String name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        bindings.remove(name);
     }
 
     @Override
