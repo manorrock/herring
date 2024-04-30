@@ -92,12 +92,16 @@ public class GlobalContext implements Context {
 
     @Override
     public void rename(Name oldName, Name newName) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        rename(oldName.toString(), newName.toString());
     }
 
     @Override
     public void rename(String oldName, String newName) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        if (bindings.get(newName) != null) {
+            throw new NamingException("Name already exists");
+        }
+        Object object = bindings.remove(oldName);
+        bindings.put(newName, object);
     }
 
     @Override
