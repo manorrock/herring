@@ -27,6 +27,8 @@
  */
 package com.manorrock.herring.global;
 
+import com.manorrock.herring.DefaultNamingEnumeration;
+import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -106,12 +108,12 @@ public class GlobalContext implements Context {
 
     @Override
     public NamingEnumeration<NameClassPair> list(Name name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return list(name.toString());
     }
 
     @Override
     public NamingEnumeration<NameClassPair> list(String name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return new DefaultNamingEnumeration(new ArrayList<>());
     }
 
     @Override
