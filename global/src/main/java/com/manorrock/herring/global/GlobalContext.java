@@ -27,6 +27,7 @@
  */
 package com.manorrock.herring.global;
 
+import com.manorrock.herring.DefaultBindingNamingEnumeration;
 import com.manorrock.herring.DefaultNamingEnumeration;
 import java.util.ArrayList;
 import java.util.Hashtable;
@@ -51,7 +52,7 @@ public class GlobalContext implements Context {
      * Stores the bindings.
      */
     private final Map<String, Object> bindings = new ConcurrentHashMap<>();
-    
+
     @Override
     public Object lookup(Name name) throws NamingException {
         return lookup(name.toString());
@@ -118,12 +119,16 @@ public class GlobalContext implements Context {
 
     @Override
     public NamingEnumeration<Binding> listBindings(Name name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        return listBindings(name.toString());
     }
 
     @Override
     public NamingEnumeration<Binding> listBindings(String name) throws NamingException {
-        throw new UnsupportedOperationException("Not supported yet.");
+        ArrayList<Binding> list = new ArrayList<>();
+        if (bindings.containsKey(name)) {
+            list.add(new Binding(name, bindings.get(name)));
+        }
+        return new DefaultBindingNamingEnumeration(list);
     }
 
     @Override
